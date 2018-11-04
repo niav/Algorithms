@@ -1,9 +1,7 @@
 cmake_minimum_required(VERSION 3.7)
-project(algo)
+project(Algorithms)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main_UF.cpp QuickFind.cpp QuickFind.h QuickUnion.cpp
-        QuickUnion.h QuickUnionPathCompr.cpp QuickUnionPathCompr.h
-        WeightedQuickUnion.cpp WeightedQuickUnion.h)
+set(SOURCE_FILES main.cpp algo.h algo.cpp)
 add_executable(algo ${SOURCE_FILES})

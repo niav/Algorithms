@@ -1,12 +1,8 @@
 // Union find algorithms, implementation divided by classes. Dynamic connectivity problem solving.
-
-#include "QuickFind.h"
-//#include "QuickUnion.h"
-//#include "WeightedQuickUnion.h"
-//#include "QuickUnionPathCompr.h"
+#include <iostream>
+#include "algo.h"
 
 using namespace std;
-
 
 int main() {
     int k;
