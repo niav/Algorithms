@@ -1,5 +1,5 @@
-#include <iostream>
 #include "algo.h"
+#include <iostream>
 
 QuickUnion::QuickUnion(int arrSize) {
     N = arrSize;
@@ -172,12 +172,3 @@ WeightedQuickUnion::~WeightedQuickUnion() {
     delete[] branch_deep;
 }
 
-template<typename T>
-size_t binarySearch(T *sortedArray, size_t low, size_t hi, const T &value) {
-    if (sortedArray == nullptr || low >= hi) return -1;
-    size_t mid = low + (hi - low) / 2;
-    T current = sortedArray[mid];
-    if (current > value) return binSearch(sortedArray, low, mid, value);
-    else if (current < value) return binSearch(sortedArray, mid + 1, hi, value);
-    return mid;
-}

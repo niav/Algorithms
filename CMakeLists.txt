@@ -3,5 +3,5 @@ project(Algorithms)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp algo.h algo.cpp)
+set(SOURCE_FILES main.cpp algo.h algo.cpp utils.h)
 add_executable(algo ${SOURCE_FILES})
