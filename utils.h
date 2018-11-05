@@ -1,8 +1,31 @@
 #ifndef _UTILS_H
 #define _UTILS_H
 
-#include <utility>
+#include <utility>// for std::move
+#include <chrono> // for std::chrono
 
+namespace chrono {
+    using namespace std::chrono;
+    using clock_t = high_resolution_clock;
+    using second_t = duration<double, std::ratio<1> >;
+
+    class Timer {
+    private:
+        time_point<clock_t> m_beg;
+
+    public:
+        Timer() : m_beg(clock_t::now()) {
+        }
+
+        void reset() {
+            m_beg = clock_t::now();
+        }
+
+        double elapsed() const {
+            return duration_cast<second_t>(clock_t::now() - m_beg).count();
+        }
+    };
+}
 template<typename T>
 void swap(T &x, T &y) {
     T temp{std::move(x)};

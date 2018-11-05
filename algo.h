@@ -1,8 +1,9 @@
 #ifndef _ALGORITHMS_H
 #define _ALGORITHMS_H
 
-#include <cstddef>
+#include <cstddef>// for std::size_t
 #include "utils.h"
+
 class QuickUnion {
 private:
     int N;
@@ -79,7 +80,7 @@ public:
 
 
 template<typename T>
-size_t binarySearch(const T *sortedArray, size_t low, size_t hi, const T &value) {
+size_t binarySearchRecursive(const T *sortedArray, size_t low, size_t hi, const T &value) {
     if (sortedArray == nullptr || low >= hi) return -1;
     size_t mid = low + (hi - low) / 2;
     T current = sortedArray[mid];
@@ -89,13 +90,29 @@ size_t binarySearch(const T *sortedArray, size_t low, size_t hi, const T &value)
 }
 
 template<typename T>
-void insertionSort(T *array, const std::size_t size) {
+size_t binarySearch(const T *sortedArray, const size_t size, const T &value) {
+    if (sortedArray == nullptr || size == 0) return -1;
+    size_t low{0}, hi{size}, mid;
+    do {
+        mid = low + (hi - low) / 2;
+        T current = sortedArray[mid];
+        if (current > value) {
+            hi = mid - 1;
+        } else if (current < value) {
+            low = mid + 1;
+        } else return mid;
+    } while (low < hi);
+    return -1;
+}
+
+template<typename T>
+void insertionSort(T *array, const std::size_t size) {//SLOW ALGORITHM
     if (array == nullptr || !size) return;
     for (std::size_t i = 0; i < size; ++i) {
         for (std::size_t j = i; j > 0; --j) {
-            if (array[j - 1] > array[j]) {
+            if (array[j - 1] > array[j])
                 swap(array[j - 1], array[j]);
-            }
+            else break;
         }
     }
 }

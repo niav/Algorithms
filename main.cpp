@@ -3,17 +3,18 @@
 #include "algo.h"
 
 int main() {
-    int arr[10];
-    int cnt = 500;
-    for (int i = 0; i < 10; ++i) {
+    int sz = 160;
+    int *arr = new int[sz];
+    int cnt = 250;
+    for (int i = 0; i < sz; ++i) {
         arr[i] = i + 2 * cnt--;
         std::cout << arr[i] << ' ';
     }
-    std::cout << std::endl;
-    insertionSort(arr, 10);
-    for (int i = 0; i < 10; ++i) {
-        std::cout << arr[i] << ' ';
-    }
+    // std::cout << std::endl;
+    // chrono::Timer t;
+//    for (int i = 0; i < sz; ++i) {
+//        std::cout << arr[i] << ' ';
+//    }
 
 //    int k;
 //    int p;
