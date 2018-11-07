@@ -4,12 +4,20 @@
 
 int main() {
     int sz = 160;
-    int *arr = new int[sz];
+    auto *arr = new int[sz];
     int cnt = 250;
     for (int i = 0; i < sz; ++i) {
         arr[i] = i + 2 * cnt--;
         std::cout << arr[i] << ' ';
     }
+
+    auto *arrStr = new std::string[3];
+    for (int i = 0; i < 3; ++i) {
+        arrStr[i] = makeRandomString(10);
+        std::cout << arrStr[i] << ' ';
+    }
+
+
     // std::cout << std::endl;
     // chrono::Timer t;
 //    for (int i = 0; i < sz; ++i) {

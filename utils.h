@@ -3,6 +3,10 @@
 
 #include <utility>// for std::move
 #include <chrono> // for std::chrono
+#include <string>
+#include <random>
+#include <iostream>
+#include <unistd.h> //sleep -temporary solution
 
 namespace chrono {
     using namespace std::chrono;
@@ -25,7 +29,10 @@ namespace chrono {
             return duration_cast<second_t>(clock_t::now() - m_beg).count();
         }
     };
-}
+}//chrono
+
+const std::string makeRandomString(size_t size);
+
 template<typename T>
 void swap(T &x, T &y) {
     T temp{std::move(x)};

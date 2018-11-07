@@ -8,36 +8,27 @@ class QuickUnion {
 private:
     int N;
     int *id;
-
 public:
     QuickUnion(int arrSize);
 
-    bool connected(int p, int q) const;
-
-    void elem_union(int p, int q);
-
-    int root(int i) const;
-
-    void print_array();
-
     ~QuickUnion();
+    bool connected(int p, int q) const;
+    void elem_union(int p, int q);
+    int root(int i) const;
+    void print_array();
 };
 
 class QuickFind {
 private:
     int sz;
     int *id;
-
 public:
     QuickFind(int arrSize);
 
-    bool connected(int p, int q);
-
-    void elem_union(int p, int q);
-
-    void print_array();
-
     ~QuickFind();
+    bool connected(int p, int q);
+    void elem_union(int p, int q);
+    void print_array();
 };
 
 class QuickUnionPathCompr {
@@ -47,15 +38,11 @@ private:
 public:
     QuickUnionPathCompr(int N);
 
-    bool connected(int p, int q);
-
-    void elem_union(int p, int q);
-
-    int root(int i);
-
-    void print_array();
-
     ~QuickUnionPathCompr();
+    bool connected(int p, int q);
+    void elem_union(int p, int q);
+    int root(int i);
+    void print_array();
 };
 
 class WeightedQuickUnion {
@@ -63,19 +50,14 @@ private:
     int N;
     int *id{nullptr};
     int *branch_deep{nullptr};
-
 public:
     WeightedQuickUnion(int arrSize);
 
-    bool connected(int p, int q);
-
-    void elem_union(int p, int q);
-
-    int root(int i);
-
-    void print_array();
-
     ~WeightedQuickUnion();
+    bool connected(int p, int q);
+    void elem_union(int p, int q);
+    int root(int i);
+    void print_array();
 };
 
 
@@ -91,11 +73,11 @@ size_t binarySearchRecursive(const T *sortedArray, size_t low, size_t hi, const 
 
 template<typename T>
 size_t binarySearch(const T *sortedArray, const size_t size, const T &value) {
-    if (sortedArray == nullptr || size == 0) return -1;
+    if (sortedArray == nullptr || !size) return -1;
     size_t low{0}, hi{size}, mid;
     do {
         mid = low + (hi - low) / 2;
-        T current = sortedArray[mid];
+        T current{sortedArray[mid]};
         if (current > value) {
             hi = mid - 1;
         } else if (current < value) {
@@ -117,4 +99,18 @@ void insertionSort(T *array, const std::size_t size) {//SLOW ALGORITHM
     }
 }
 
+template<typename T>
+class MergeSort {
+protected:
+    T *auxArray;
+    size_t size;
+public:
+    void merge(T *array, size_t size);
+};
+
+template<typename T>
+void MergeSort<T>::merge(T *array, const size_t size) {
+
+}
+//
 #endif //_ALGORITHMS_H
